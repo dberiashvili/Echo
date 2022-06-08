@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.echo.R
 import com.echo.databinding.OnboardingViewPagerScreenBinding
@@ -24,6 +25,9 @@ class OnBoardingViewPagerScreen : Fragment() {
         TabLayoutMediator(binding.introTabLayout, binding.introPager)
         { _, _ -> }.attach()
         binding.introPager.registerOnPageChangeCallback(PagerSwipeAction())
+        binding.nextButton.setOnClickListener {
+            changeFragment()
+        }
         return binding.root
     }
 
@@ -42,5 +46,18 @@ class OnBoardingViewPagerScreen : Fragment() {
                 }
             }
         }
+    }
+
+    private fun changeFragment() {
+        if (binding.introPager.currentItem < LAST_FRAGMENT_INDEX) {
+            binding.introPager.currentItem++
+        } else {
+            findNavController().navigate(OnBoardingViewPagerScreenDirections.actionOnboardingViewPagerScreenToLoginScreen())
+
+        }
+    }
+
+    companion object {
+        const val LAST_FRAGMENT_INDEX = 2
     }
 }

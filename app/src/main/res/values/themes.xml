@@ -10,4 +10,18 @@
         <item name="android:color">@color/primary_solid_10</item>
         <item name="height">56dp</item>
     </style>
+    
+    <style name="OnBoardingTitle">
+        <item name="fontFamily">@font/helvetica_neue</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_big</item>
+        <item name="fontWeight">700</item>
+    </style>
+
+    <style name="OnBoardingDescription">
+        <item name="fontFamily">@font/helvetica_neue</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_medium</item>
+        <item name="fontWeight">400</item>
+    </style>
 </resources>

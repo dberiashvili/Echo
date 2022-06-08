@@ -31,5 +31,9 @@
         android:id="@+id/onboardingViewPagerScreen"
         android:name="com.echo.onboarding.OnBoardingViewPagerScreen"
         android:label="onboarding_view_pager_screen"
-        tools:layout="@layout/onboarding_view_pager_screen" />
+        tools:layout="@layout/onboarding_view_pager_screen" >
+        <action
+            android:id="@+id/action_onboardingViewPagerScreen_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
 </navigation>

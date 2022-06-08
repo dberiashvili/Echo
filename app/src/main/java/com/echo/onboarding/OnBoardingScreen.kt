@@ -5,28 +5,36 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.echo.databinding.OnboardingScreen1Binding
+import com.echo.R
+import com.echo.databinding.OnboardingScreenBinding
+import com.echo.databinding.OnboardingViewPagerScreenBinding
 
 class OnBoardingScreen : Fragment() {
-    private lateinit var binding: OnboardingScreen1Binding
+    private lateinit var binding: OnboardingScreenBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val position = arguments?.getInt(POS_ARG, 0)
-        binding = OnboardingScreen1Binding.inflate(layoutInflater)
+        binding = OnboardingScreenBinding.inflate(layoutInflater)
         when (position) {
             0 -> {
-                binding.txt.text = "1"
+                binding.onboardingIcon.setImageResource(R.drawable.ic_onboarding_flag)
+                binding.onboardingTitle.text = context?.getText(R.string.onboarding_purpose_title)
+                binding.onboardingDescription.text = context?.getText(R.string.onboarding_first_desc_text)
             }
 
             1 -> {
-                binding.txt.text = "2"
+                binding.onboardingIcon.setImageResource(R.drawable.ic_onboarding_column)
+                binding.onboardingTitle.text = context?.getText(R.string.onboarding_second_title_text)
+                binding.onboardingDescription.text = context?.getText(R.string.onboarding_second_desc_text)
             }
 
             2 -> {
-                binding.txt.text = "3"
+                binding.onboardingIcon.setImageResource(R.drawable.ic_onboarding_column)
+                binding.onboardingTitle.text = context?.getText(R.string.onboarding_third_title_text)
+                binding.onboardingDescription.text = context?.getText(R.string.onboarding_third_desc_text)
             }
         }
 

@@ -3,4 +3,12 @@
     <string name="intro_skip">გამოტოვება</string>
     <string name="intro_next">შემდეგი</string>
     <string name="intro_start">დაიწყე</string>
+    <string name="onboarding_purpose_title">პროექტის მიზანია</string>
+    <string name="onboarding_first_desc_text">ქუთაისის მრავალფეროვნების ისტორიის შესწავლა და პოპულარიზაცია ტოლერანტული გარემოს გასაძლიერებლად</string>
+    <string name="onboarding_second_title_text">აღმოაჩინე</string>
+    <string name="onboarding_second_desc_text">საფეხმავლო ტურის საშუალებით ქუთაისელი კათოლიკეებისა და ქუთაისელი ებრალების კვალი</string>
+    <string name="onboarding_third_title_text">მხარდამჭერი</string>
+    <string name="onboarding_third_desc_text">პროექტი დაფინანსებულია ფონდი „ღია საზოგადოება - საქართველოსა“ და კონრად
+ ადენაუერის ფონდის პროგრამა „სამხრეთ კავკასიის პოლიტიკური დიალოგის“  მიერ.
+    </string>
 </resources>
