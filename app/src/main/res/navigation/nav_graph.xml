@@ -6,30 +6,30 @@
     app:startDestination="@id/starterScreen">
 
     <fragment
-        android:id="@+id/loginScreen"
-        android:name="com.echo.login.LoginScreen"
+        android:id="@+id/registerScreen"
+        android:name="com.echo.presentation.auth.RegisterScreen"
         android:label="login_screen"
-        tools:layout="@layout/login_screen" >
+        tools:layout="@layout/register_screen" >
     </fragment>
     <fragment
         android:id="@+id/starterScreen"
-        android:name="com.echo.starter.StarterScreen"
+        android:name="com.echo.presentation.starter.StarterScreen"
         android:label="starter_screen"
         tools:layout="@layout/starter_screen" >
         <action
             android:id="@+id/action_starterScreen_to_loginScreen"
-            app:destination="@id/loginScreen" />
+            app:destination="@id/registerScreen" />
         <action
             android:id="@+id/action_starterScreen_to_onboardingViewPagerScreen"
             app:destination="@id/onboardingViewPagerScreen" />
     </fragment>
     <fragment
         android:id="@+id/onboardingViewPagerScreen"
-        android:name="com.echo.onboarding.OnBoardingViewPagerScreen"
+        android:name="com.echo.presentation.onboarding.OnBoardingViewPagerScreen"
         android:label="onboarding_view_pager_screen"
         tools:layout="@layout/onboarding_view_pager_screen" >
         <action
             android:id="@+id/action_onboardingViewPagerScreen_to_loginScreen"
-            app:destination="@id/loginScreen" />
+            app:destination="@id/registerScreen" />
     </fragment>
 </navigation>

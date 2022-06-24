@@ -11,17 +11,22 @@
         <item name="height">56dp</item>
     </style>
     
-    <style name="OnBoardingTitle">
+    <style name="TitleStyle">
         <item name="fontFamily">@font/helvetica_neue</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/font_big</item>
         <item name="fontWeight">700</item>
     </style>
 
-    <style name="OnBoardingDescription">
+    <style name="TextDescription">
         <item name="fontFamily">@font/helvetica_neue</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/font_medium</item>
         <item name="fontWeight">400</item>
+    </style>
+
+    <style name="EditText.Style" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/edit_text_bg</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
     </style>
 </resources>

@@ -1,21 +1,21 @@
-package com.echo.login
+package com.echo.presentation.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.echo.databinding.LoginScreenBinding
+import com.echo.databinding.RegisterScreenBinding
 
 
-class LoginScreen : Fragment() {
-    lateinit var binding: LoginScreenBinding
+class RegisterScreen : Fragment() {
+    private lateinit var binding: RegisterScreenBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = LoginScreenBinding.inflate(layoutInflater)
+        binding = RegisterScreenBinding.inflate(layoutInflater)
         return binding.root
     }
 }

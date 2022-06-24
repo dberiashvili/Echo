@@ -3,6 +3,7 @@
     package="com.echo">
 
     <application
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,6 +12,8 @@
         android:theme="@style/Theme.Echo">
         <activity
             android:name=".app.MainActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="fullSensor"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

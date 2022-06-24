@@ -1,4 +1,4 @@
-package com.echo.onboarding
+package com.echo.presentation.onboarding
 
 import android.content.Context
 import android.os.Bundle
@@ -13,6 +13,7 @@ import com.echo.common.Constants.OnBoarding_LAST_FRAGMENT_INDEX
 import com.echo.common.Constants.ONBOARDING_PREF
 import com.echo.common.Constants.PREF_NAME
 import com.echo.databinding.OnboardingViewPagerScreenBinding
+
 import com.google.android.material.tabs.TabLayoutMediator
 
 

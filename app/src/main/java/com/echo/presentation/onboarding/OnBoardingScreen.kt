@@ -1,4 +1,4 @@
-package com.echo.onboarding
+package com.echo.presentation.onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.echo.R
 import com.echo.databinding.OnboardingScreenBinding
-import com.echo.databinding.OnboardingViewPagerScreenBinding
 
 class OnBoardingScreen : Fragment() {
     private lateinit var binding: OnboardingScreenBinding

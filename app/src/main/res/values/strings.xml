@@ -11,4 +11,12 @@
     <string name="onboarding_third_desc_text">პროექტი დაფინანსებულია ფონდი „ღია საზოგადოება - საქართველოსა“ და კონრად
  ადენაუერის ფონდის პროგრამა „სამხრეთ კავკასიის პოლიტიკური დიალოგის“  მიერ.
     </string>
+    <string name="register_title">რეგისტრაცია</string>
+    <string name="register_description_text">შეავსე შენს შესახებ მარტივი კითხვარი. ქვიზის პასუხებსა და სერტიფიკატს გამოგიგზავნით მითითებულ ელ. ფოსტაზე</string>
+    <string name="name_input">სახელი</string>
+    <string name="last_name_input">გვარი</string>
+    <string name="phone_input">ტელეფონი</string>
+    <string name="email_input">ელ-ფოსტა</string>
+    <string name="school_input">სკოლა</string>
+    <string name="grade_input">კლასი</string>
 </resources>

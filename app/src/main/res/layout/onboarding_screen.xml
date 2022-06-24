@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/onboarding_title"
-        style="@style/OnBoardingTitle"
+        style="@style/TitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_65"
@@ -28,7 +28,7 @@
 
     <TextView
         android:id="@+id/onboarding_description"
-        style="@style/OnBoardingDescription"
+        style="@style/TextDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_24"
