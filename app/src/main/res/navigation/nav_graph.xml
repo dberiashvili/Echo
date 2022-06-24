@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/registerScreen"
-        android:name="com.echo.presentation.auth.RegisterScreen"
+        android:name="com.echo.auth.RegisterScreen"
         android:label="login_screen"
         tools:layout="@layout/register_screen" >
     </fragment>
     <fragment
         android:id="@+id/starterScreen"
-        android:name="com.echo.presentation.starter.StarterScreen"
+        android:name="com.echo.starter.StarterScreen"
         android:label="starter_screen"
         tools:layout="@layout/starter_screen" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingViewPagerScreen"
-        android:name="com.echo.presentation.onboarding.OnBoardingViewPagerScreen"
+        android:name="com.echo.onboarding.OnBoardingViewPagerScreen"
         android:label="onboarding_view_pager_screen"
         tools:layout="@layout/onboarding_view_pager_screen" >
         <action

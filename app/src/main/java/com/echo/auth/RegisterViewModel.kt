@@ -1,4 +1,4 @@
-package com.echo.presentation.auth
+package com.echo.auth
 
 import com.echo.common.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

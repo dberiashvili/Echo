@@ -1,4 +1,4 @@
-package com.echo.presentation.auth
+package com.echo.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater

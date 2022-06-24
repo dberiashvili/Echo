@@ -1,9 +1,9 @@
-package com.echo.presentation.onboarding
+package com.echo.onboarding
 
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.echo.presentation.onboarding.OnBoardingScreen
+import com.echo.onboarding.OnBoardingScreen
 
 class ViewPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fm, lifecycle) {

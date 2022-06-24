@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary_solid_10"
-    tools:context=".presentation.starter.StarterScreen">
+    tools:context=".starter.StarterScreen">
 
     <ImageView
         android:layout_width="wrap_content"

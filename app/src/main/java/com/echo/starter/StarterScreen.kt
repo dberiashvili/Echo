@@ -1,4 +1,4 @@
-package com.echo.presentation.starter
+package com.echo.starter
 
 import android.content.Context
 import android.os.Bundle

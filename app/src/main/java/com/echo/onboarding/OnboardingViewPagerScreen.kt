@@ -1,4 +1,4 @@
-package com.echo.presentation.onboarding
+package com.echo.onboarding
 
 import android.content.Context
 import android.os.Bundle
