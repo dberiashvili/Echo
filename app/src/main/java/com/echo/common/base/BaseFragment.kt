@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
+import com.echo.R
+import com.echo.common.base.utils.observeEvent
+import com.echo.common.base.utils.showDialog
 
 
-abstract class BaseFragment<VB : ViewBinding, VM : ViewModel?> : Fragment() {
-    protected abstract val viewModel : VM
+abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel?> : Fragment() {
+    protected abstract val viewModel: VM
 
     private var _binding: VB? = null
 
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +29,24 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel?> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel?.loading?.observe(viewLifecycleOwner) {
+            if (it) {
+                showLoading()
+            } else {
+                hideLoading()
+            }
+        }
+        viewModel?.dialog?.observeEvent(lifecycleOwner = viewLifecycleOwner) {
+            if (!it.message.isNullOrEmpty()) {
+                showDialog(it.title, it.message)
+                return@observeEvent
+            }
+            if (it.messageRes != null) {
+                showDialog(it.title, resources.getString(it.messageRes))
+            } else {
+                showDialog(it.title, resources.getString(R.string.common_unknown_error))
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -37,4 +55,8 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel?> : Fragment() {
     }
 
     abstract fun inflateViewBinding(inflater: LayoutInflater, container: ViewGroup?): VB
+
+    open fun showLoading() {}
+
+    open fun hideLoading() {}
 }

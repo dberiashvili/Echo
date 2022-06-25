@@ -4,18 +4,81 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.echo.R
+import com.echo.auth.domain.RegisterModel
+import com.echo.common.base.BaseFragment
+import com.echo.common.base.utils.hide
+import com.echo.common.base.utils.show
 import com.echo.databinding.RegisterScreenBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
+class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() {
+    override val viewModel: RegisterViewModel by viewModels()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-class RegisterScreen : Fragment() {
-    private lateinit var binding: RegisterScreenBinding
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = RegisterScreenBinding.inflate(layoutInflater)
-        return binding.root
+        viewModel.checkFields(
+            listOf(
+                binding.nameET,
+                binding.lastNameET,
+                binding.phoneET,
+                binding.emailET,
+                binding.schoolET,
+                binding.gradeET
+            )
+        )
+
+        viewModel.areTheFieldsFilled.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.registerButton.isEnabled = true
+                binding.registerButton.setBackgroundResource(R.drawable.next_btn_bg)
+            } else {
+                binding.registerButton.isEnabled = false
+                binding.registerButton.setBackgroundResource(R.drawable.btn_disabled)
+            }
+
+        }
+
+        binding.registerButton.setOnClickListener {
+            lifecycleScope.launchWhenCreated {
+                viewModel.registerUser(
+                    RegisterModel(
+                        binding.nameET.text.toString(),
+                        binding.lastNameET.text.toString(),
+                        binding.phoneET.text.toString(),
+                        binding.emailET.text.toString(),
+                        binding.schoolET.text.toString(),
+                        binding.gradeET.text.toString()
+                    )
+                )
+            }
+
+        }
+
+        viewModel.authResponse.observe(viewLifecycleOwner) {
+
+        }
+
     }
+
+    override fun inflateViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): RegisterScreenBinding {
+        return RegisterScreenBinding.inflate(inflater, container, false)
+    }
+
+    override fun showLoading() {
+        binding.progressBar.show()
+    }
+
+    override fun hideLoading() {
+        binding.progressBar.hide()
+    }
+
+
 }

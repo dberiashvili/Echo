@@ -19,4 +19,9 @@
     <string name="email_input">ელ-ფოსტა</string>
     <string name="school_input">სკოლა</string>
     <string name="grade_input">კლასი</string>
+    <string name="common_error">დაფიქსირდა შეცდომა</string>
+    <string name="common_no_connection">ინტერნეტთან კავშირის პრობლემა</string>
+    <string name="common_OK">კარგი</string>
+    <string name="common_unknown_error">დაფიქსირდა უცნობი შეცდომა</string>
+    <string name="continue_text">გაგრძელება</string>
 </resources>
