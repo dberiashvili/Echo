@@ -22,3 +22,4 @@ fun <T> LiveData<Event<T>>.observeEvent(lifecycleOwner: LifecycleOwner, observer
         }
     }
 }
+

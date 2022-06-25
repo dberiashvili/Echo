@@ -50,4 +50,8 @@ class RegisterViewModel @Inject constructor(
             }
         }
     }
+
+    fun navigateToChooser() {
+        navigate(RegisterScreenDirections.actionRegisterScreenToTourChooserScreen())
+    }
 }

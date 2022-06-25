@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/tourChooserScreen"
-        android:name="com.echo.TourChooserScreen"
+        android:name="com.echo.tour_chooser_screen.presentation.TourChooserScreen"
         android:label="tour_chooser_screen"
         tools:layout="@layout/tour_chooser_screen" />
 </navigation>

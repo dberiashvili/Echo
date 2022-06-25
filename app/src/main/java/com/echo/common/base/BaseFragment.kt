@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.echo.R
+import com.echo.common.base.utils.navigation.NavigationCommand
+import com.echo.common.base.utils.navigation.observeNonNull
 import com.echo.common.base.utils.observeEvent
 import com.echo.common.base.utils.showDialog
 
@@ -29,6 +32,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel?> : Fragment() 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeNavigation()
         viewModel?.loading?.observe(viewLifecycleOwner) {
             if (it) {
                 showLoading()
@@ -59,4 +63,19 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel?> : Fragment() 
     open fun showLoading() {}
 
     open fun hideLoading() {}
+
+    private fun observeNavigation() {
+        viewModel?.navigation?.observeNonNull(viewLifecycleOwner) {
+            it.getContentIfNotHandled()?.let { navigationCommand ->
+                handleNavigation(navigationCommand)
+            }
+        }
+    }
+
+    private fun handleNavigation(navCommand: NavigationCommand) {
+        when (navCommand) {
+            is NavigationCommand.ToDirection -> findNavController().navigate(navCommand.directions)
+            is NavigationCommand.Back -> findNavController().navigateUp()
+        }
+    }
 }

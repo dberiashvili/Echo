@@ -3,9 +3,12 @@ package com.echo.common.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavDirections
 import com.echo.R
 import com.echo.common.base.utils.DialogData
 import com.echo.common.base.utils.Event
+import com.echo.common.base.utils.navigation.NavigationCommand
+import com.echo.common.base.utils.navigation.NavigationEvent
 
 abstract class BaseViewModel: ViewModel(), UiErrorInterface {
     private val _loading = MutableLiveData(false)
@@ -13,6 +16,17 @@ abstract class BaseViewModel: ViewModel(), UiErrorInterface {
 
     private val _dialog = MutableLiveData<Event<DialogData>>()
     val dialog: LiveData<Event<DialogData>> get() = _dialog
+
+    private val _navigation = MutableLiveData<NavigationEvent<NavigationCommand>>()
+    val navigation: LiveData<NavigationEvent<NavigationCommand>> get() = _navigation
+
+    fun navigate(navDirections: NavDirections) {
+        _navigation.value = NavigationEvent(NavigationCommand.ToDirection(navDirections))
+    }
+
+    fun navigateBack() {
+        _navigation.value = NavigationEvent(NavigationCommand.Back)
+    }
 
     protected fun showLoading() = _loading.postValue(true)
     protected fun hideLoading() = _loading.postValue(false)

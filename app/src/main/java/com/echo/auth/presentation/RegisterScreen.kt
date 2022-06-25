@@ -59,6 +59,8 @@ class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() 
                 )
             }
 
+            viewModel.navigateToChooser()
+
 
         }
 
