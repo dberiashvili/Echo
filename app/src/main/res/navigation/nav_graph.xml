@@ -10,6 +10,9 @@
         android:name="com.echo.auth.presentation.RegisterScreen"
         android:label="login_screen"
         tools:layout="@layout/register_screen" >
+        <action
+            android:id="@+id/action_registerScreen_to_tourChooserScreen"
+            app:destination="@id/tourChooserScreen" />
     </fragment>
     <fragment
         android:id="@+id/starterScreen"
@@ -32,4 +35,9 @@
             android:id="@+id/action_onboardingViewPagerScreen_to_loginScreen"
             app:destination="@id/registerScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/tourChooserScreen"
+        android:name="com.echo.TourChooserScreen"
+        android:label="tour_chooser_screen"
+        tools:layout="@layout/tour_chooser_screen" />
 </navigation>

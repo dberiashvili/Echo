@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Echo">
         <activity
             android:name=".app.MainActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="fullSensor"
             android:exported="true">
             <intent-filter>

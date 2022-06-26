@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.echo.R
 import com.echo.auth.domain.RegisterModel
 import com.echo.common.base.BaseFragment
 import com.echo.common.base.utils.hide
+import com.echo.common.base.utils.keyboard.HeightProvider
 import com.echo.common.base.utils.show
 import com.echo.databinding.RegisterScreenBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -57,6 +59,7 @@ class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() 
                 )
             }
 
+
         }
 
         viewModel.authResponse.observe(viewLifecycleOwner) {
@@ -71,6 +74,7 @@ class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() 
     ): RegisterScreenBinding {
         return RegisterScreenBinding.inflate(inflater, container, false)
     }
+
 
     override fun showLoading() {
         binding.progressBar.show()

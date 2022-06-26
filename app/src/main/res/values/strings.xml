@@ -24,4 +24,6 @@
     <string name="common_OK">კარგი</string>
     <string name="common_unknown_error">დაფიქსირდა უცნობი შეცდომა</string>
     <string name="continue_text">გაგრძელება</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
