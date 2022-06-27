@@ -10,6 +10,7 @@ import com.echo.auth.domain.RegisterModel
 import com.echo.auth.domain.RegisterUseCase
 import com.echo.common.base.BaseViewModel
 import com.echo.common.base.handleNetworkError
+import com.echo.common.model.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -19,8 +20,8 @@ import javax.inject.Inject
 class RegisterViewModel @Inject constructor(
     private val useCase: RegisterUseCase
 ) : BaseViewModel() {
-    private val _authResponse: MutableLiveData<AuthResponse> = MutableLiveData()
-    val authResponse: LiveData<AuthResponse> = _authResponse
+    private val _authResponse: MutableLiveData<Resource<AuthResponse>> = MutableLiveData()
+    val authResponse: LiveData<Resource<AuthResponse>> = _authResponse
     private val _areTheFieldsFilled = MutableLiveData(false)
     val areTheFieldsFilled: LiveData<Boolean> = _areTheFieldsFilled
 
@@ -29,9 +30,10 @@ class RegisterViewModel @Inject constructor(
             showLoading()
             try {
                 val response = useCase.invoke(registerModel)
-                _authResponse.postValue(response)
+                _authResponse.postValue(Resource.Success(response))
             } catch (e: Exception) {
                 handleNetworkError(e)
+                _authResponse.postValue(Resource.Error(e.localizedMessage ?: ""))
             } finally {
                 hideLoading()
             }
@@ -40,9 +42,9 @@ class RegisterViewModel @Inject constructor(
     }
 
     fun checkFields(inputs: List<EditText>) {
-        for(input in inputs){
+        for (input in inputs) {
             input.doAfterTextChanged {
-                if (inputs.none { it.text.isEmpty() }){
+                if (inputs.none { it.text.isEmpty() }) {
                     _areTheFieldsFilled.postValue(true)
                 } else {
                     _areTheFieldsFilled.postValue(false)

@@ -9,10 +9,10 @@ import com.echo.R
 
 fun Fragment.showDialog(@StringRes title: Int, message: String) {
     context?.let {
-        AlertDialog.Builder(it)
+        AlertDialog.Builder(it, R.style.AlertDialogTheme)
             .setTitle(title)
             .setMessage(message)
-            .setNeutralButton(
+            .setPositiveButton(
                 getString(R.string.common_OK)
             ) { dialog, _ -> dialog.dismiss() }
             .setCancelable(true)

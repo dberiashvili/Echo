@@ -8,6 +8,7 @@
     android:name="androidx.navigation.fragment.NavHostFragment"
     app:defaultNavHost="true"
     app:navGraph="@navigation/nav_graph"
-    tools:context=".app.MainActivity">
+    tools:context=".app.MainActivity"
+    android:background="@color/white">
 
 </androidx.fragment.app.FragmentContainerView>

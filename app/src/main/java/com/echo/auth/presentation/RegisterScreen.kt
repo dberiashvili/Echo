@@ -14,6 +14,7 @@ import com.echo.common.base.BaseFragment
 import com.echo.common.base.utils.hide
 import com.echo.common.base.utils.keyboard.HeightProvider
 import com.echo.common.base.utils.show
+import com.echo.common.model.Resource
 import com.echo.databinding.RegisterScreenBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,6 +23,11 @@ class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() 
     override val viewModel: RegisterViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        HeightProvider(requireActivity()).init().setHeightListener(object : HeightProvider.HeightListener {
+            override fun onHeightChanged(height: Int) {
+                binding.root.setTranslationY(-height.toFloat())
+            }
+        })
 
         viewModel.checkFields(
             listOf(
@@ -59,13 +65,14 @@ class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() 
                 )
             }
 
-            viewModel.navigateToChooser()
-
 
         }
 
-        viewModel.authResponse.observe(viewLifecycleOwner) {
-
+        viewModel.authResponse.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is Resource.Success -> viewModel.navigateToChooser()
+                else -> {}
+            }
         }
 
     }
