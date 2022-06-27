@@ -1,5 +1,6 @@
 package com.echo.auth.presentation
 
+import android.util.Patterns
 import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.LiveData
@@ -24,6 +25,8 @@ class RegisterViewModel @Inject constructor(
     val authResponse: LiveData<Resource<AuthResponse>> = _authResponse
     private val _areTheFieldsFilled = MutableLiveData(false)
     val areTheFieldsFilled: LiveData<Boolean> = _areTheFieldsFilled
+    private val _isEmailValid: MutableLiveData<Boolean> = MutableLiveData()
+    val isEmailValid: LiveData<Boolean> = _isEmailValid
 
     suspend fun registerUser(registerModel: RegisterModel) {
         viewModelScope.launch {
@@ -55,5 +58,13 @@ class RegisterViewModel @Inject constructor(
 
     fun navigateToChooser() {
         navigate(RegisterScreenDirections.actionRegisterScreenToTourChooserScreen())
+    }
+
+    fun checkEmail(email: String) {
+
+        _isEmailValid.postValue(
+            email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        )
+
     }
 }

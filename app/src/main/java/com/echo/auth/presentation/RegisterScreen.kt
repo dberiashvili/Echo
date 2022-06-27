@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -23,11 +24,6 @@ class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() 
     override val viewModel: RegisterViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        HeightProvider(requireActivity()).init().setHeightListener(object : HeightProvider.HeightListener {
-            override fun onHeightChanged(height: Int) {
-                binding.root.setTranslationY(-height.toFloat())
-            }
-        })
 
         viewModel.checkFields(
             listOf(
@@ -37,8 +33,19 @@ class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() 
                 binding.emailET,
                 binding.schoolET,
                 binding.gradeET
-            )
+            ),
         )
+
+        binding.emailET.doAfterTextChanged {
+            viewModel.checkEmail(it.toString())
+        }
+
+        viewModel.isEmailValid.observe(viewLifecycleOwner) {
+            if (!it) {
+                binding.emailET.error = getString(R.string.email_error)
+            }
+        }
+
 
         viewModel.areTheFieldsFilled.observe(viewLifecycleOwner) {
             if (it) {
