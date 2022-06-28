@@ -7,9 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING
 import android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
-
 import android.widget.PopupWindow
 
 
@@ -23,7 +21,6 @@ class HeightProvider(private val mActivity: Activity) : PopupWindow(mActivity),
     fun init(): HeightProvider {
         if (!isShowing) {
             val view: View = mActivity.window.decorView
-            // Delay loading popupwindow, if not, error will be reported
             view.post { showAtLocation(view, Gravity.NO_GRAVITY, 0, 0) }
         }
         return this
@@ -66,7 +63,7 @@ class HeightProvider(private val mActivity: Activity) : PopupWindow(mActivity),
         height = ViewGroup.LayoutParams.MATCH_PARENT
 
         // Set keyboard pop-up mode
-        softInputMode = SOFT_INPUT_ADJUST_NOTHING
+        softInputMode = SOFT_INPUT_ADJUST_RESIZE
         inputMethodMode = INPUT_METHOD_NEEDED
     }
 }
