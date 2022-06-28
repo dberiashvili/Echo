@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Echo/app/src/main/res/drawable/tab_pager_selector.xml" value="0.1" />
         <entry key="..\:/Android/Echo/app/src/main/res/layout/activity_main.xml" value="0.15729166666666666" />
+        <entry key="..\:/Android/Echo/app/src/main/res/layout/onboarding_view_pager_screen.xml" value="0.18" />
         <entry key="..\:/Android/Echo/app/src/main/res/layout/register_screen.xml" value="0.2574074074074074" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/btn_disabled.xml" value="0.109" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/cursor.xml" value="0.1445" />

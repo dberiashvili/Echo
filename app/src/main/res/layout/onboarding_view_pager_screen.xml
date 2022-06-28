@@ -15,6 +15,7 @@
             android:layout_marginTop="@dimen/spacing_16"
             android:layout_marginEnd="@dimen/spacing_16"
             android:text="@string/intro_skip"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +34,7 @@
             android:layout_marginBottom="@dimen/spacing_16"
             app:layout_constraintBottom_toTopOf="@+id/nextButton"
             app:tabBackground="@drawable/tab_pager_selector"
+            style="@style/AppTheme.TabLayout"
             app:tabGravity="center"
             app:tabIndicatorHeight="0dp" />
 

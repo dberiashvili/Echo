@@ -10,4 +10,5 @@
     <color name="primary_solid_10">#FF6A34</color>
     <color name="black_tr_70">#14000000</color>
     <color name="black_tr_60">#29000000</color>
+    <color name="colorOnPrimary">#F5EBEB</color>
 </resources>
