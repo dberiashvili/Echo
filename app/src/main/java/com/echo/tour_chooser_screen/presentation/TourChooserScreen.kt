@@ -1,6 +1,8 @@
 package com.echo.tour_chooser_screen.presentation
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.echo.common.base.BaseFragment
@@ -15,5 +17,9 @@ class TourChooserScreen : BaseFragment<TourChooserScreenBinding, TourChooserView
         container: ViewGroup?
     ): TourChooserScreenBinding {
         return TourChooserScreenBinding.inflate(layoutInflater)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

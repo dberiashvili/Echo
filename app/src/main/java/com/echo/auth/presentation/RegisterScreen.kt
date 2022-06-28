@@ -4,16 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.echo.R
 import com.echo.auth.domain.RegisterModel
 import com.echo.common.base.BaseFragment
 import com.echo.common.base.utils.hide
-import com.echo.common.base.utils.keyboard.HeightProvider
 import com.echo.common.base.utils.show
 import com.echo.common.model.Resource
 import com.echo.databinding.RegisterScreenBinding
@@ -47,7 +44,7 @@ class RegisterScreen : BaseFragment<RegisterScreenBinding, RegisterViewModel>() 
         }
 
 
-        viewModel.areTheFieldsFilled.observe(viewLifecycleOwner) {
+        viewModel.validateFields.observe(viewLifecycleOwner) {
             if (it) {
                 binding.registerButton.isEnabled = true
                 binding.registerButton.setBackgroundResource(R.drawable.next_btn_bg)

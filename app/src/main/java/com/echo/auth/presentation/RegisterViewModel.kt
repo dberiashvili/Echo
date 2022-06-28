@@ -23,8 +23,8 @@ class RegisterViewModel @Inject constructor(
 ) : BaseViewModel() {
     private val _authResponse: MutableLiveData<Resource<AuthResponse>> = MutableLiveData()
     val authResponse: LiveData<Resource<AuthResponse>> = _authResponse
-    private val _areTheFieldsFilled = MutableLiveData(false)
-    val areTheFieldsFilled: LiveData<Boolean> = _areTheFieldsFilled
+    private val _validateFields = MutableLiveData(false)
+    val validateFields: LiveData<Boolean> = _validateFields
     private val _isEmailValid: MutableLiveData<Boolean> = MutableLiveData()
     val isEmailValid: LiveData<Boolean> = _isEmailValid
 
@@ -47,10 +47,10 @@ class RegisterViewModel @Inject constructor(
     fun checkFields(inputs: List<EditText>) {
         for (input in inputs) {
             input.doAfterTextChanged {
-                if (inputs.none { it.text.isEmpty() }) {
-                    _areTheFieldsFilled.postValue(true)
+                if (inputs.none { it.text.isEmpty() } &&_isEmailValid.value == true) {
+                    _validateFields.postValue(true)
                 } else {
-                    _areTheFieldsFilled.postValue(false)
+                    _validateFields.postValue(false)
                 }
             }
         }
