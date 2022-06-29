@@ -24,7 +24,11 @@
     <string name="common_OK">კარგი</string>
     <string name="common_unknown_error">დაფიქსირდა უცნობი შეცდომა</string>
     <string name="continue_text">გაგრძელება</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="email_error">ელ-ფოსტის ფორმატი არასწორია</string>
+    <string name="know_your_history_title">გაეცანი შენს ისტორიას</string>
+    <string name="tour_chooser_description">ქუთაისის დოკუმენტური ისტორია იწყება თუმცა ანტიკური ავტორები მას თვლიან</string>
+    <string name="tour_chooser_catholic_tour">კათოლიკური ტური</string>
+    <string name="tour_chooser_hebrew_tour">ებრაული ტური</string>
+    <string name="tour_chooser_start">ტურის დაწყება</string>
 </resources>

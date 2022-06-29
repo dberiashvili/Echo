@@ -10,5 +10,9 @@
     <color name="primary_solid_10">#FF6A34</color>
     <color name="black_tr_70">#14000000</color>
     <color name="black_tr_60">#29000000</color>
-    <color name="colorOnPrimary">#F5EBEB</color>
+    <color name="colorOnPrimary">#fef8f2</color>
+    <color name="primary_tr_60">#29FF6A34</color>
+    <color name="secondary_tr_60">#297A89C3</color>
+    <color name="white_tr_10">#1AFFFFFF</color>
+    <color name="secondary_solid_10">#7a89c3</color>
 </resources>
