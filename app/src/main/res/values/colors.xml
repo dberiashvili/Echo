@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary_solid_10">#FF6A34</color>
     <color name="black_tr_70">#14000000</color>
+    <color name="black_tr_20">#EB000000</color>
+    <color name="black_tr_40">#A3000000</color>
     <color name="black_tr_60">#29000000</color>
     <color name="colorOnPrimary">#fef8f2</color>
     <color name="primary_tr_60">#29FF6A34</color>

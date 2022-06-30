@@ -12,7 +12,7 @@
 
         <TextView
             android:id="@+id/page_title"
-            style="@style/TitleStyle"
+            style="@style/FontPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_24"
@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/page_description"
-            style="@style/TextDescription"
+            style="@style/FontSecondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_24"
@@ -57,6 +57,9 @@
             app:layout_constraintTop_toBottomOf="@id/page_description">
 
             <TextView
+                style="@style/FontPrimary"
+                android:textSize="@dimen/font_medium"
+                android:textColor="@color/black_tr_20"
                 android:id="@+id/catholic_tour_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,6 +73,9 @@
 
             <TextView
                 android:id="@+id/catholic_tour_description"
+                style="@style/FontSecondary"
+                android:textColor="@color/black_tr_20"
+                android:textSize="@dimen/font_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_12"
@@ -84,6 +90,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_12"
                 android:text="@string/tour_chooser_start"
+                style="@style/FontPrimary"
+                android:textSize="14sp"
+                android:textColor="@color/primary_solid_10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/catholic_tour_description" />
@@ -122,6 +131,9 @@
             app:layout_constraintTop_toBottomOf="@id/catholic_container">
 
             <TextView
+                style="@style/FontPrimary"
+                android:textSize="@dimen/font_medium"
+                android:textColor="@color/black_tr_20"
                 android:id="@+id/hebrew_tour_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -134,6 +146,8 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                style="@style/FontSecondary"
+                android:textColor="@color/black_tr_20"
                 android:id="@+id/hebrew_tour_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -150,6 +164,9 @@
                 android:layout_marginTop="@dimen/spacing_12"
                 android:text="@string/tour_chooser_start"
                 app:layout_constraintEnd_toEndOf="parent"
+                style="@style/FontPrimary"
+                android:textSize="14sp"
+                android:textColor="@color/secondary_solid_10"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/hebrew_tour_description" />
 

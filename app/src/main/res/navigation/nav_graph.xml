@@ -12,7 +12,14 @@
         tools:layout="@layout/register_screen" >
         <action
             android:id="@+id/action_registerScreen_to_tourChooserScreen"
-            app:destination="@id/tourChooserScreen" />
+            app:destination="@id/tourChooserScreen"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/from_right"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/to_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/starterScreen"
@@ -21,10 +28,24 @@
         tools:layout="@layout/starter_screen" >
         <action
             android:id="@+id/action_starterScreen_to_loginScreen"
-            app:destination="@id/registerScreen" />
+            app:destination="@id/registerScreen"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/from_right"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/to_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_starterScreen_to_onboardingViewPagerScreen"
-            app:destination="@id/onboardingViewPagerScreen" />
+            app:destination="@id/onboardingViewPagerScreen"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/from_right"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/to_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/onboardingViewPagerScreen"

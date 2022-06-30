@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/onboarding_title"
-            style="@style/TitleStyle"
+            style="@style/FontPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_65"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/onboarding_description"
-            style="@style/TextDescription"
+            style="@style/FontSecondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_24"

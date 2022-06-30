@@ -8,12 +8,13 @@
     android:paddingBottom="@dimen/spacing_24">
 
     <TextView
+        style="@style/FontPrimary"
+        android:textSize="@dimen/font_medium"
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_24"
         android:layout_marginTop="@dimen/spacing_24"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/tour_chooser_catholic_tour" />
@@ -49,6 +50,7 @@
         tools:src="@drawable/ic_catholic" />
 
     <TextView
+        style="@style/FontSecondary"
         android:id="@+id/tour_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tour_icon"
-        tools:text="@string/tour_chooser_description" />
+        tools:text="@string/bottom_sheet_catholic_description" />
 
     <ImageView
         android:id="@+id/start_button"

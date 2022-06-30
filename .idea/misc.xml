@@ -25,12 +25,14 @@
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/next_btn_bg.xml" value="0.109" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout-land/onboarding_view_pager_screen.xml" value="0.34270833333333334" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/activity_main.xml" value="0.12" />
+        <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/bottom_sheet.xml" value="0.30416666666666664" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/login_screen.xml" value="0.12552083333333333" />
-        <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/onboarding_screen.xml" value="0.1" />
+        <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/onboarding_screen.xml" value="0.33" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/onboarding_screen_1.xml" value="0.12552083333333333" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/onboarding_view_pager_screen.xml" value="0.14" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/register_screen.xml" value="0.7162790697674418" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/splash_screen.xml" value="0.30416666666666664" />
+        <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/tour_chooser_screen.xml" value="0.26296296296296295" />
         <entry key="..\:/Echo/app/src/main/res/drawable/default_pager_dot.xml" value="0.1" />
         <entry key="..\:/Echo/app/src/main/res/drawable/ic_vector.xml" value="0.1" />
         <entry key="..\:/Echo/app/src/main/res/drawable/selected_pager_dot.xml" value="0.1" />

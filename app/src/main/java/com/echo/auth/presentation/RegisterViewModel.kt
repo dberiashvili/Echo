@@ -32,7 +32,7 @@ class RegisterViewModel @Inject constructor(
         viewModelScope.launch {
             showLoading()
             try {
-                val response = useCase.invoke(registerModel)
+                val response = useCase(registerModel)
                 _authResponse.postValue(Resource.Success(response))
             } catch (e: Exception) {
                 handleNetworkError(e)

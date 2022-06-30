@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.viewModels
@@ -40,18 +39,18 @@ class TourChooserScreen : BaseFragment<TourChooserScreenBinding, TourChooserView
 
         viewModel.actionSheetValue.observe(viewLifecycleOwner) {
             when (it) {
-                is ActionSheetChooser.HebrewActionSheet -> showCatholicBottomSheet(
+                is ActionSheetChooser.HebrewActionSheet -> showBottomSheet(
                     requireContext(),
                     R.string.tour_chooser_hebrew_tour,
-                    R.string.tour_chooser_description,
+                    R.string.bottom_sheet_hebrew_description,
                     R.drawable.ic_hebrew,
                     R.drawable.next_btn_bg_secondary
                 )
                 is ActionSheetChooser.CatholicActionSheet -> {
-                    showCatholicBottomSheet(
+                    showBottomSheet(
                         requireContext(),
                         R.string.tour_chooser_catholic_tour,
-                        R.string.tour_chooser_description,
+                        R.string.bottom_sheet_catholic_description,
                         R.drawable.ic_catholic,
                         R.drawable.next_btn_bg
                     )
@@ -61,7 +60,7 @@ class TourChooserScreen : BaseFragment<TourChooserScreenBinding, TourChooserView
         }
     }
 
-    private fun showCatholicBottomSheet(
+    private fun showBottomSheet(
         context: Context,
         @StringRes title: Int,
         @StringRes description: Int,

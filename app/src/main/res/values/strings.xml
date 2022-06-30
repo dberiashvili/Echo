@@ -31,4 +31,6 @@
     <string name="tour_chooser_catholic_tour">კათოლიკური ტური</string>
     <string name="tour_chooser_hebrew_tour">ებრაული ტური</string>
     <string name="tour_chooser_start">ტურის დაწყება</string>
+    <string name="bottom_sheet_catholic_description">თქვენ უახლოესი 1.5 საათის განმავლობაში აღმოაჩენთ ქუთაისელი კათოლიკეების წარსულს, გაიგებთ თუ რა როლი მიუძღვით მათ ქალაქის კულტურის, ეკონომიკისა და სოციალურ განვითარებაში.</string>
+    <string name="bottom_sheet_hebrew_description">თქვენ უახლოესი 1.5 საათის განმავლობაში აღმოაჩენთ ქუთაისელი ებრაელების წარსულს, გაიგებთ თუ რა როლი მიუძღვით მათ ქალაქის კულტურის, ეკონომიკისა და სოციალურ განვითარებაში.</string>
 </resources>
