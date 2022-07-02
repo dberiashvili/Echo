@@ -5,4 +5,5 @@ object Constants {
     const val PREF_NAME = "my pref"
     const val ONBOARDING_PREF = "oboarding_pref"
     const val OnBoarding_LAST_FRAGMENT_INDEX = 2
+    const val REQUEST_CODE_LOCATION_PERMISSION = 10
 }

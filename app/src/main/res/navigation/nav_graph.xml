@@ -60,5 +60,18 @@
         android:id="@+id/tourChooserScreen"
         android:name="com.echo.tour_chooser_screen.presentation.TourChooserScreen"
         android:label="tour_chooser_screen"
-        tools:layout="@layout/tour_chooser_screen" />
+        tools:layout="@layout/tour_chooser_screen" >
+        <action
+            android:id="@+id/action_tourChooserScreen_to_mapScreen"
+            app:destination="@id/mapScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapScreen"
+        android:name="com.echo.map.presentation.MapScreen"
+        android:label="map_screen"
+        tools:layout="@layout/map_screen" >
+        <action
+            android:id="@+id/action_mapScreen_to_tourChooserScreen"
+            app:destination="@id/tourChooserScreen" />
+    </fragment>
 </navigation>

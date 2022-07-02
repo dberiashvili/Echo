@@ -10,7 +10,7 @@ import com.echo.auth.data.AuthResponse
 import com.echo.auth.domain.RegisterModel
 import com.echo.auth.domain.RegisterUseCase
 import com.echo.common.base.BaseViewModel
-import com.echo.common.base.handleNetworkError
+import com.echo.common.base.utils.handleNetworkError
 import com.echo.common.model.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

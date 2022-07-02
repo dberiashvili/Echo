@@ -1,4 +1,4 @@
-package com.echo.common.base
+package com.echo.common.base.utils
 
 import org.json.JSONObject
 import retrofit2.HttpException

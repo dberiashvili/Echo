@@ -33,4 +33,12 @@
     <string name="tour_chooser_start">ტურის დაწყება</string>
     <string name="bottom_sheet_catholic_description">თქვენ უახლოესი 1.5 საათის განმავლობაში აღმოაჩენთ ქუთაისელი კათოლიკეების წარსულს, გაიგებთ თუ რა როლი მიუძღვით მათ ქალაქის კულტურის, ეკონომიკისა და სოციალურ განვითარებაში.</string>
     <string name="bottom_sheet_hebrew_description">თქვენ უახლოესი 1.5 საათის განმავლობაში აღმოაჩენთ ქუთაისელი ებრაელების წარსულს, გაიგებთ თუ რა როლი მიუძღვით მათ ქალაქის კულტურის, ეკონომიკისა და სოციალურ განვითარებაში.</string>
+    <string name="action_settings">აპლიკაციის პარამეტრები</string>
+    <string name="additional_listener_msg">Additional listener message</string>
+    <string name="granted_permissions">ლოკაციაზე წვდომა გააქტიურებულია</string>
+    <string name="permanently_denied_permissions">შეზღუდული წვდომები: %s</string>
+    <string name="permissions_required">გთხოვთ, გაააქტიურეთ წვდომა</string>
+    <string name="rationale_permissions">წვდომა: %s</string>
+    <string name="request_again">წვდომის მოთხოვნა</string>
+    <string name="dialog_cancel">დახურვა</string>
 </resources>

@@ -19,4 +19,9 @@ class TourChooserViewModel @Inject constructor() : BaseViewModel() {
         }
     }
 
+
+    fun navigateToMapScreen() {
+        navigate(TourChooserScreenDirections.actionTourChooserScreenToMapScreen())
+    }
 }
+

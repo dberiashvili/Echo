@@ -7,6 +7,7 @@ import androidx.navigation.NavDirections
 import com.echo.R
 import com.echo.common.base.utils.DialogData
 import com.echo.common.base.utils.Event
+import com.echo.common.base.utils.UiErrorInterface
 import com.echo.common.base.utils.navigation.NavigationCommand
 import com.echo.common.base.utils.navigation.NavigationEvent
 
