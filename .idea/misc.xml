@@ -19,6 +19,7 @@
         <entry key="..\:/Android/Echo/app/src/main/res/layout/register_screen.xml" value="0.2574074074074074" />
         <entry key="..\:/Android/Echo/app/src/main/res/layout/tour_chooser_screen.xml" value="0.1458551941238195" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/btn_disabled.xml" value="0.109" />
+        <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/clock_bg.xml" value="0.109" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/cursor.xml" value="0.1445" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/edit_text_bg.xml" value="0.1975" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/ic_arrow_next.xml" value="0.109" />
@@ -31,6 +32,7 @@
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/onboarding_screen.xml" value="0.33" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/onboarding_screen_1.xml" value="0.12552083333333333" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/onboarding_view_pager_screen.xml" value="0.14" />
+        <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/quiz_screen.xml" value="0.2851851851851852" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/register_screen.xml" value="0.16" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/splash_screen.xml" value="0.30416666666666664" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/layout/tour_chooser_screen.xml" value="0.26296296296296295" />

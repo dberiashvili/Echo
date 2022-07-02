@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/starterScreen">
+    app:startDestination="@id/quizScreen">
 
     <fragment
         android:id="@+id/registerScreen"
@@ -74,4 +74,9 @@
             android:id="@+id/action_mapScreen_to_tourChooserScreen"
             app:destination="@id/tourChooserScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/quizScreen"
+        android:name="com.echo.quiz.presentation.QuizScreen"
+        android:label="quiz_screen"
+        tools:layout="@layout/quiz_screen" />
 </navigation>

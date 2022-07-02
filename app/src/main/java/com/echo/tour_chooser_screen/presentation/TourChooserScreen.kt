@@ -40,7 +40,7 @@ class TourChooserScreen : BaseFragment<TourChooserScreenBinding, TourChooserView
     private val request by lazy {
         permissionsBuilder(
             Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
         ).build()
     }
 

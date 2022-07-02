@@ -4,6 +4,7 @@ import com.echo.BuildConfig
 import com.echo.auth.data.AuthRepoImpl
 import com.echo.auth.data.AuthService
 import com.echo.auth.domain.AuthRepo
+import com.echo.quiz.data.QuizService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Binds
 import dagger.Module
@@ -35,6 +36,9 @@ class NetworkModule {
 
     @Provides
     fun provideAuthService(retrofit: Retrofit): AuthService = retrofit.create()
+
+    @Provides
+    fun provideQuizService(retrofit: Retrofit): QuizService = retrofit.create()
 
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()

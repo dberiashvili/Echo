@@ -60,4 +60,22 @@
 
     <color name="font_secondary_color">#9f9f9f</color>
     <color name="font_secondary_colora">#3F51B5</color>
+
+    <style name="RoundedImageStyle">
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+        <item name="color">@color/white</item>
+    </style>
+
+    <style name="QuizQuestionStyle" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/helvetica_neue</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">28sp</item>
+        <item name="fontWeight">500</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
 </resources>

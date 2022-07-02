@@ -41,4 +41,5 @@
     <string name="rationale_permissions">წვდომა: %s</string>
     <string name="request_again">წვდომის მოთხოვნა</string>
     <string name="dialog_cancel">დახურვა</string>
+    <string name="quiz_choose_answer">მონიშნე პასუხი</string>
 </resources>
