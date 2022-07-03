@@ -12,8 +12,22 @@ import androidx.fragment.app.Fragment
 import com.echo.R
 import com.fondesa.kpermissions.PermissionStatus
 import com.fondesa.kpermissions.request.PermissionRequest
+import java.util.*
 
 fun Fragment.showDialog(@StringRes title: Int, message: String) {
+    context?.let {
+        AlertDialog.Builder(it, R.style.AlertDialogTheme)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton(
+                getString(R.string.common_OK)
+            ) { dialog, _ -> dialog.dismiss() }
+            .setCancelable(true)
+            .show()
+    }
+}
+
+fun Fragment.showDialog(@StringRes title: String, message: String) {
     context?.let {
         AlertDialog.Builder(it, R.style.AlertDialogTheme)
             .setTitle(title)
@@ -75,4 +89,9 @@ private fun Context.createAppSettingsIntent() = Intent().apply {
 
 private inline fun <reified T : PermissionStatus> List<PermissionStatus>.toMessage(): String = filterIsInstance<T>()
     .joinToString { it.permission }
+
+fun Long.toSeconds() = String.format(
+    Locale.ENGLISH, "%01d", this / 1000,
+    (this % 3600) / 60,
+    this % 60)
 
