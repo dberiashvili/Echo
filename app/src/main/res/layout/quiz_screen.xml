@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     tools:context=".quiz.presentation.QuizScreen">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="2">
         <ProgressBar
+            android:layout_gravity="center"
             android:id="@+id/progress_circular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,84 +20,224 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/question_index_tv"
-            style="@style/FontPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_24"
-            android:layout_marginTop="@dimen/spacing_24"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="შეკითხვა 1/10" />
 
-        <View
-            android:id="@+id/clock_view"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="@dimen/spacing_24"
-            android:background="@drawable/clock_bg"
-            app:layout_constraintBottom_toBottomOf="@id/question_index_tv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/question_index_tv" />
 
-        <ImageView
-            android:id="@+id/clock_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/ic_clock"
-            app:layout_constraintBottom_toBottomOf="@id/clock_view"
-            app:layout_constraintStart_toStartOf="@id/clock_view"
-            app:layout_constraintTop_toTopOf="@id/clock_view" />
+            <TextView
+                android:id="@+id/question_index_tv"
+                style="@style/FontPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_24"
+                android:layout_marginTop="@dimen/spacing_24"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="შეკითხვა 1/10" />
 
-        <TextView
-            android:id="@+id/timer_text"
-            style="@style/FontSecondary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="10dp"
-            android:textColor="@color/primary_solid_10"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/clock_image"
-            app:layout_constraintEnd_toEndOf="@id/clock_view"
-            app:layout_constraintStart_toEndOf="@id/clock_image"
-            app:layout_constraintTop_toTopOf="@id/clock_image"
-            tools:text="1:00" />
+            <View
+                android:id="@+id/clock_view"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="@dimen/spacing_24"
+                android:background="@drawable/clock_bg"
+                app:layout_constraintBottom_toBottomOf="@id/question_index_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/question_index_tv" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/quiz_image"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_24"
-            app:layout_constraintEnd_toEndOf="@id/clock_view"
-            app:layout_constraintStart_toStartOf="@id/question_index_tv"
-            app:layout_constraintTop_toBottomOf="@id/timer_text"
-            app:shapeAppearanceOverlay="@style/RoundedImageStyle"
-            tools:src="@mipmap/ic_launcher" />
-        <TextView
-            android:id="@+id/quiz_question"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/quiz_image"
-            app:layout_constraintEnd_toEndOf="@id/quiz_image"
-            app:layout_constraintTop_toBottomOf="@id/quiz_image"
-            android:layout_marginTop="@dimen/spacing_16"
-            tools:text="ვინ არის ავტორი ფრაზის - ჭიანჭველას ღმერთი მაშინ გაუწყრება, როცა ფრთები გამოუვა, ზეცას ფრენას მოინდომებს, გზაში სული ამოუვა?"
-            style="@style/QuizQuestionStyle" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/quiz_question"
-            android:layout_marginTop="@dimen/spacing_16"
-            app:layout_constraintStart_toStartOf="@id/quiz_question"
-            style="@style/FontSecondary"
-            android:text="@string/quiz_choose_answer"
-            android:textColor="@color/black_tr_40"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/clock_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_clock"
+                app:layout_constraintBottom_toBottomOf="@id/clock_view"
+                app:layout_constraintStart_toStartOf="@id/clock_view"
+                app:layout_constraintTop_toTopOf="@id/clock_view" />
+
+            <TextView
+                android:id="@+id/timer_text"
+                style="@style/FontSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/primary_solid_10"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/clock_image"
+                app:layout_constraintEnd_toEndOf="@id/clock_view"
+                app:layout_constraintStart_toEndOf="@id/clock_image"
+                app:layout_constraintTop_toTopOf="@id/clock_image"
+                tools:text="1:00" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/quiz_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_24"
+                app:layout_constraintEnd_toEndOf="@id/clock_view"
+                app:layout_constraintStart_toStartOf="@id/question_index_tv"
+                app:layout_constraintTop_toBottomOf="@id/timer_text"
+                app:shapeAppearanceOverlay="@style/RoundedImageStyle"
+                tools:src="@mipmap/ic_launcher" />
+            <TextView
+                android:id="@+id/quiz_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/quiz_image"
+                app:layout_constraintEnd_toEndOf="@id/quiz_image"
+                app:layout_constraintTop_toBottomOf="@id/quiz_image"
+                android:layout_marginTop="@dimen/spacing_16"
+                tools:text="ვინ არის ავტორი ფრაზის - ჭიანჭველას ღმერთი მაშინ გაუწყრება, როცა ფრთები გამოუვა, ზეცას ფრენას მოინდომებს, გზაში სული ამოუვა?"
+                style="@style/QuizQuestionStyle" />
+
+            <TextView
+                android:id="@+id/select_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/quiz_question"
+                android:layout_marginTop="@dimen/spacing_16"
+                app:layout_constraintStart_toStartOf="@id/quiz_question"
+                style="@style/FontSecondary"
+                android:text="@string/quiz_choose_answer"
+                android:textColor="@color/black_tr_40" />
+
+            <View
+                android:id="@+id/option_1_bg"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/spacing_16"
+                android:background="@drawable/edit_text_bg"
+                app:layout_constraintEnd_toEndOf="@id/clock_view"
+                app:layout_constraintStart_toStartOf="@id/quiz_question"
+                app:layout_constraintTop_toBottomOf="@id/select_question" />
+
+            <ImageView
+                android:id="@+id/option_1_tick"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:background="@drawable/question_option_tick_bg"
+                app:layout_constraintBottom_toBottomOf="@id/option_1_bg"
+                app:layout_constraintStart_toStartOf="@id/option_1_bg"
+                app:layout_constraintTop_toTopOf="@id/option_1_bg" />
+
+            <TextView
+                android:id="@+id/option_1_text"
+                style="@style/FontSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                tools:text="pasuxi"
+                android:textColor="@color/black_tr_60"
+                app:layout_constraintBottom_toBottomOf="@id/option_1_tick"
+                app:layout_constraintStart_toEndOf="@id/option_1_tick"
+                app:layout_constraintTop_toTopOf="@id/option_1_tick" />
+
+            <View
+                android:id="@+id/option_2_bg"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/spacing_16"
+                android:background="@drawable/edit_text_bg"
+                app:layout_constraintEnd_toEndOf="@id/clock_view"
+                app:layout_constraintStart_toStartOf="@id/quiz_question"
+                app:layout_constraintTop_toBottomOf="@id/option_1_bg" />
+
+            <ImageView
+                android:id="@+id/option_2_tick"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:background="@drawable/question_option_tick_bg"
+                app:layout_constraintBottom_toBottomOf="@id/option_2_bg"
+                app:layout_constraintStart_toStartOf="@id/option_2_bg"
+                app:layout_constraintTop_toTopOf="@id/option_2_bg" />
+
+            <TextView
+                android:id="@+id/option_2_text"
+                style="@style/FontSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                tools:text="pasuxi"
+                android:textColor="@color/black_tr_60"
+                app:layout_constraintBottom_toBottomOf="@id/option_2_tick"
+                app:layout_constraintStart_toEndOf="@id/option_2_tick"
+                app:layout_constraintTop_toTopOf="@id/option_2_tick" />
+
+            <View
+                android:id="@+id/option_3_bg"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/spacing_16"
+                android:background="@drawable/edit_text_bg"
+                app:layout_constraintEnd_toEndOf="@id/clock_view"
+                app:layout_constraintStart_toStartOf="@id/quiz_question"
+                app:layout_constraintTop_toBottomOf="@id/option_2_bg" />
+
+            <ImageView
+                android:id="@+id/option_3_tick"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:background="@drawable/question_option_tick_bg"
+                app:layout_constraintBottom_toBottomOf="@id/option_3_bg"
+                app:layout_constraintStart_toStartOf="@id/option_3_bg"
+                app:layout_constraintTop_toTopOf="@id/option_3_bg" />
+
+            <TextView
+                android:id="@+id/option_3_text"
+                style="@style/FontSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                tools:text="pasuxi"
+                android:textColor="@color/black_tr_60"
+                app:layout_constraintBottom_toBottomOf="@id/option_3_tick"
+                app:layout_constraintStart_toEndOf="@id/option_3_tick"
+                app:layout_constraintTop_toTopOf="@id/option_3_tick" />
+
+            <View
+                android:id="@+id/option_4_bg"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="@dimen/spacing_16"
+                android:background="@drawable/edit_text_bg"
+                app:layout_constraintEnd_toEndOf="@id/clock_view"
+                app:layout_constraintStart_toStartOf="@id/quiz_question"
+                app:layout_constraintTop_toBottomOf="@id/option_3_bg" />
+
+            <ImageView
+                android:id="@+id/option_4_tick"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:background="@drawable/question_option_tick_bg"
+                app:layout_constraintBottom_toBottomOf="@id/option_4_bg"
+                app:layout_constraintStart_toStartOf="@id/option_4_bg"
+                app:layout_constraintTop_toTopOf="@id/option_4_bg" />
+
+            <TextView
+                android:id="@+id/option_4_text"
+                style="@style/FontSecondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                tools:text="pasuxi"
+                android:textColor="@color/black_tr_60"
+                app:layout_constraintBottom_toBottomOf="@id/option_4_tick"
+                app:layout_constraintStart_toEndOf="@id/option_4_tick"
+                app:layout_constraintTop_toTopOf="@id/option_4_tick" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 
 </androidx.core.widget.NestedScrollView>
