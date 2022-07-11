@@ -7,6 +7,8 @@ import com.echo.common.base.BaseViewModel
 import com.echo.common.base.utils.handleNetworkError
 import com.echo.common.model.Resource
 import com.echo.quiz.domain.models.QuizQuestion
+import com.echo.quiz.domain.models.UserOption
+import com.echo.quiz.domain.usecase.GetCorrectAnswerUseCase
 import com.echo.quiz.domain.usecase.GetQuestionsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,8 +20,10 @@ import javax.inject.Inject
 @HiltViewModel
 class QuizViewModel @Inject constructor(
     private val getQuestionsUseCase: GetQuestionsUseCase,
+    private val getCorrectAnswerUseCase: GetCorrectAnswerUseCase
 ): BaseViewModel() {
     val index = MutableLiveData(0)
+    val optionIsCorrect: MutableLiveData<Boolean> = MutableLiveData()
     val timer: QuizTimer = QuizTimer(3000, 1000)
     private val _questions: MutableStateFlow<Resource<List<QuizQuestion>>> =
         MutableStateFlow(Resource.Loading())
@@ -44,6 +48,17 @@ class QuizViewModel @Inject constructor(
         if (questions.value.data!!.size-1>index.value!!) {
             index.postValue(index.value?.plus(1) ?: index.value)
         }
+    }
+
+    fun checkQuestion(index: Int) {
+        viewModelScope.launch {
+            if (getCorrectAnswerUseCase(UserOption(quizId = 1, index+1, 0)).isCorrect){
+                optionIsCorrect.postValue(true)
+            } else {
+                optionIsCorrect.postValue(false)
+            }
+        }
+
 
     }
 }

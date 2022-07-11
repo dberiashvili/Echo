@@ -51,6 +51,7 @@ class QuizScreen : BaseFragment<QuizScreenBinding, QuizViewModel>() {
 
                             binding.option1Bg.setOnClickListener {
                                 lifecycleScope.launch {
+                                    viewModel.checkQuestion(1)
                                     delay(2000)
                                     viewModel.nextQuestion()
                                 }
