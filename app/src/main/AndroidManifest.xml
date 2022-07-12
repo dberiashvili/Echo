@@ -32,6 +32,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Echo">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBWh7Fah-LINDZ3Ppf17d7-ht7OGSrjOhA" />
         <activity
             android:name=".app.MainActivity"
             android:windowSoftInputMode="adjustResize"
