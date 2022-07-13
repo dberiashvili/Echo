@@ -10,13 +10,16 @@
         <entry key="..\:/Android/Echo/app/src/main/res/drawable/ic_catholic.xml" value="0.1" />
         <entry key="..\:/Android/Echo/app/src/main/res/drawable/next_btn_bg.xml" value="0.1" />
         <entry key="..\:/Android/Echo/app/src/main/res/drawable/next_btn_bg_secondary.xml" value="0.1" />
+        <entry key="..\:/Android/Echo/app/src/main/res/drawable/selected_pager_dot.xml" value="0.1" />
         <entry key="..\:/Android/Echo/app/src/main/res/drawable/tab_pager_selector.xml" value="0.1" />
         <entry key="..\:/Android/Echo/app/src/main/res/drawable/tour_chooser_bg_catholic.xml" value="0.1" />
         <entry key="..\:/Android/Echo/app/src/main/res/drawable/tour_chooser_bg_hebrew.xml" value="0.1" />
         <entry key="..\:/Android/Echo/app/src/main/res/layout/activity_main.xml" value="0.15729166666666666" />
-        <entry key="..\:/Android/Echo/app/src/main/res/layout/bottom_sheet.xml" value="0.2914046121593291" />
+        <entry key="..\:/Android/Echo/app/src/main/res/layout/bottom_sheet.xml" value="0.1" />
+        <entry key="..\:/Android/Echo/app/src/main/res/layout/map_screen.xml" value="0.1578125" />
         <entry key="..\:/Android/Echo/app/src/main/res/layout/onboarding_view_pager_screen.xml" value="0.18" />
         <entry key="..\:/Android/Echo/app/src/main/res/layout/register_screen.xml" value="0.2574074074074074" />
+        <entry key="..\:/Android/Echo/app/src/main/res/layout/starter_screen.xml" value="0.11927083333333334" />
         <entry key="..\:/Android/Echo/app/src/main/res/layout/tour_chooser_screen.xml" value="0.1458551941238195" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/btn_disabled.xml" value="0.109" />
         <entry key="..\:/Android_Projects/echo-android/app/src/main/res/drawable/clock_bg.xml" value="0.109" />

@@ -32,6 +32,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Echo">
+
+        <service android:name=".map.service.LocationService"
+            android:foregroundServiceType="location"
+            android:exported="false"/>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBWh7Fah-LINDZ3Ppf17d7-ht7OGSrjOhA" />

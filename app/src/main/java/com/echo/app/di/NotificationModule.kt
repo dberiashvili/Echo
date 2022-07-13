@@ -29,7 +29,7 @@ class NotificationModule {
             context,
             99,
             Intent(context, MainActivity::class.java),
-            PendingIntent.FLAG_UPDATE_CURRENT
+            PendingIntent.FLAG_IMMUTABLE
         )
     }
 
@@ -42,7 +42,7 @@ class NotificationModule {
         return NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
             .setAutoCancel(false)
             .setOngoing(true)
-            .setSmallIcon(R.drawable.clock_bg)
+            .setSmallIcon(R.drawable.ic_logo)
             .setContentIntent(pendingIntent)
     }
 

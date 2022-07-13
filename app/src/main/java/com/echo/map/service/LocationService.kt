@@ -19,12 +19,16 @@ import com.echo.common.Constants.LOCATION_UPDATE_INTERVAL
 import com.echo.common.Constants.NOTIFICATION_CHANNEL_ID
 import com.echo.common.Constants.NOTIFICATION_CHANNEL_NAME
 import com.echo.common.Constants.NOTIFICATION_ID
+import com.echo.map.utils.MapUtil.calculateDistance
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.DecimalFormat
+import com.google.maps.android.SphericalUtil
 import javax.inject.Inject
 
 @AndroidEntryPoint
+
 class LocationService:LifecycleService() {
 
     @Inject
@@ -36,18 +40,13 @@ class LocationService:LifecycleService() {
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     companion object {
-        val started = MutableLiveData<Boolean>()
+
         val locationList = MutableLiveData<MutableList<LatLng>>()
-        val startTime = MutableLiveData<Long>()
-        val stopTime = MutableLiveData<Long>()
     }
 
 
     private fun initValues() {
-        started.postValue(false)
         locationList.postValue(mutableListOf())
-        startTime.postValue(0L)
-        stopTime.postValue(0L)
     }
 
     private val locationCallback = object : LocationCallback() {
@@ -74,6 +73,7 @@ class LocationService:LifecycleService() {
 
     private fun updateNotificationPeriodically() {
         notification.setContentTitle("Distance Travelled")
+            .setContentText(locationList.value?.let { calculateDistance(it) } + "km")
         notificationManager.notify(NOTIFICATION_ID, notification.build())
     }
 
@@ -88,16 +88,15 @@ class LocationService:LifecycleService() {
         intent?.let {
             when (it.action) {
                 ACTION_START_FOREGROUND_SERVICE -> {
-                    started.postValue(true)
                     startForegroundService()
                     startLocationUpdates()
                 }
                 ACTION_STOP_FOREGROUND_SERVICE -> {
-                    started.postValue(false)
                     stopForegroundService()
 
                 }
-                else -> {}
+                else -> {
+                }
             }
 
         }
@@ -126,7 +125,6 @@ class LocationService:LifecycleService() {
             Looper.getMainLooper()
 
         )
-        startTime.postValue(System.currentTimeMillis())
     }
 
     private fun stopForegroundService() {
@@ -136,7 +134,6 @@ class LocationService:LifecycleService() {
         )
         stopForeground(true)
         stopSelf()
-        stopTime.postValue(System.currentTimeMillis())
     }
 
     private fun removeLocationUpdates() {
@@ -144,14 +141,12 @@ class LocationService:LifecycleService() {
     }
 
     private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                NOTIFICATION_CHANNEL_ID,
-                NOTIFICATION_CHANNEL_NAME,
-                IMPORTANCE_LOW
-            )
-            notificationManager.createNotificationChannel(channel)
-        }
+        val channel = NotificationChannel(
+            NOTIFICATION_CHANNEL_ID,
+            NOTIFICATION_CHANNEL_NAME,
+            IMPORTANCE_LOW
+        )
+        notificationManager.createNotificationChannel(channel)
     }
 }
 
