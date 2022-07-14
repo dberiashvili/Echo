@@ -3,6 +3,7 @@ package com.echo.map.presentation
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.echo.R
 import com.echo.common.Constants.ACTION_START_FOREGROUND_SERVICE
+import com.echo.common.Constants.ACTION_STOP_FOREGROUND_SERVICE
 import com.echo.common.base.BaseFragment
 import com.echo.common.base.utils.permissions.PermissionManager
 import com.echo.common.base.utils.showPermanentlyDeniedDialog
@@ -30,9 +32,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.Polyline
+import com.google.android.gms.maps.model.*
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -78,6 +78,7 @@ class MapScreen : BaseFragment<MapScreenBinding, MapViewModel>(), PermissionRequ
                 )
             )
         }
+        observeLocations()
 
     }
 
@@ -90,7 +91,7 @@ class MapScreen : BaseFragment<MapScreenBinding, MapViewModel>(), PermissionRequ
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observeLocations()
+
         sendActionCommandToService(ACTION_START_FOREGROUND_SERVICE)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
@@ -103,7 +104,42 @@ class MapScreen : BaseFragment<MapScreenBinding, MapViewModel>(), PermissionRequ
     private fun observeLocations() {
         locationList.observe(viewLifecycleOwner) {
             locations = it
+            followPolyline()
+            drawPolyline()
         }
+
+
+    }
+
+
+    private fun followPolyline() {
+        if (locations.isNotEmpty()) {
+            map.animateCamera(
+                CameraUpdateFactory.newCameraPosition(
+                    setCameraPosition(locations.last())
+                ), 1000, null
+            )
+        }
+    }
+
+    private fun drawPolyline()
+    {
+        val polyline=map.addPolyline(
+            PolylineOptions().apply {
+                color(Color.BLUE)
+                width(10f)
+                jointType(JointType.ROUND)
+                startCap(ButtCap())
+                endCap(ButtCap())
+                addAll(locations)
+            }
+        )
+        polylineList.add(polyline)
+    }
+
+    private fun addMarker(position: LatLng){
+        val marker = map.addMarker(MarkerOptions().position(position))
+        markerList.add(marker!!)
     }
 
     private fun sendActionCommandToService(action: String) {
@@ -134,5 +170,12 @@ class MapScreen : BaseFragment<MapScreenBinding, MapViewModel>(), PermissionRequ
         return true
     }
 
+
     override fun onMarkerClick(p0: Marker) = true
+
+    override fun onDestroy() {
+        super.onDestroy()
+        sendActionCommandToService(ACTION_STOP_FOREGROUND_SERVICE)
+
+    }
 }

@@ -42,4 +42,7 @@
     <string name="request_again">წვდომის მოთხოვნა</string>
     <string name="dialog_cancel">დახურვა</string>
     <string name="quiz_choose_answer">მონიშნე პასუხი</string>
+    <string name="first_location_title">პირველი პუნქტი</string>
+    <string name="distance_left_text">ადგილზე მისასვლელად დარჩენილია</string>
+    <string name="start_ready_text">ადგილზე ვარ</string>
 </resources>
