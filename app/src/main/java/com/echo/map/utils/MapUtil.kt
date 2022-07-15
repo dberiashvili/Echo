@@ -12,14 +12,11 @@ object MapUtil {
             .build()
     }
 
-    fun calculateDistance(locationList:MutableList<LatLng>):String{
+    fun calculateDistance(from: LatLng, to: LatLng): String {
 
-        if(locationList.size>1){
-            val distance= SphericalUtil.computeDistanceBetween(locationList.first(),locationList.last())
-            return DecimalFormat("#.##").format(distance/1000)
-        }
+        val distance = SphericalUtil.computeDistanceBetween(from, to)
+        return DecimalFormat("#.##").format(distance / 1000)
 
-        return "0.00"
 
     }
 

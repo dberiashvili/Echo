@@ -73,7 +73,7 @@ class LocationService:LifecycleService() {
 
     private fun updateNotificationPeriodically() {
         notification.setContentTitle("Distance Travelled")
-            .setContentText(locationList.value?.let { calculateDistance(it) } + "km")
+            .setContentText("km")
         notificationManager.notify(NOTIFICATION_ID, notification.build())
     }
 

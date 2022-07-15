@@ -17,107 +17,124 @@
                 android:id="@+id/map"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 tools:context=".ui.maps.MapsFragment"/>
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/bottom_sheet_background"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent">
-            <ImageView
-                android:id="@+id/pin_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_16"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/map_icon_bg"
-                android:padding="@dimen/spacing_16"
-                android:src="@drawable/ic_pin"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/location_number"
-                style="@style/FontSecondary"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_16"
-                android:layout_marginEnd="@dimen/spacing_24"
-                android:text="@string/first_location_title"
-                android:textColor="@color/black_tr_40"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/pin_icon"
-                app:layout_constraintTop_toTopOf="@id/pin_icon" />
-
-            <TextView
-                android:id="@+id/destination_title"
-                style="@style/FontSecondary"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:maxLines="2"
-                android:text="ებრაელთა და კათოლიკეთა უბნის გზაჯვარედინი"
-                app:layout_constraintEnd_toEndOf="@id/location_number"
-                app:layout_constraintStart_toStartOf="@id/location_number"
-                app:layout_constraintTop_toBottomOf="@id/location_number" />
-
-            <ImageView
-                android:id="@+id/location_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_24"
-                android:background="@drawable/map_icon_bg"
-                android:padding="@dimen/spacing_16"
-                android:src="@drawable/ic_location"
-                app:layout_constraintEnd_toEndOf="@id/pin_icon"
-                app:layout_constraintStart_toStartOf="@id/pin_icon"
-                app:layout_constraintTop_toBottomOf="@id/destination_title" />
-
-            <TextView
-                android:id="@+id/distance_left_tv"
-                style="@style/FontSecondary"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_16"
-                android:layout_marginEnd="24dp"
-                android:text="@string/distance_left_text"
-                android:textColor="@color/black_tr_40"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/location_icon"
-                app:layout_constraintTop_toTopOf="@id/location_icon" />
-
-            <TextView
-                android:id="@+id/distance_left_value"
-                style="@style/FontSecondary"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="2 კმ"
-                app:layout_constraintStart_toStartOf="@id/distance_left_tv"
-                app:layout_constraintTop_toBottomOf="@id/distance_left_tv" />
-
-            <ImageView
-                android:id="@+id/submit_button"
+            android:layout_weight="1"
+            android:fillViewport="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:background="@drawable/bottom_sheet_background"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
-                android:background="@drawable/btn_disabled"
-                android:clickable="false"
-                app:layout_constraintTop_toBottomOf="@id/distance_left_value" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/FontPrimary"
-                app:layout_constraintStart_toStartOf="@id/submit_button"
-                app:layout_constraintEnd_toEndOf="@id/submit_button"
-                android:text="@string/start_ready_text"
-                app:layout_constraintTop_toTopOf="@id/submit_button"
-                app:layout_constraintBottom_toBottomOf="@id/submit_button"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintBottom_toBottomOf="parent">
+                <ImageView
+                    android:id="@+id/pin_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_16"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/map_icon_bg"
+                    android:padding="@dimen/spacing_16"
+                    android:src="@drawable/ic_pin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/location_number"
+                    style="@style/FontSecondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_16"
+                    android:layout_marginEnd="@dimen/spacing_24"
+                    android:text="@string/first_location_title"
+                    android:textColor="@color/black_tr_40"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/pin_icon"
+                    app:layout_constraintTop_toTopOf="@id/pin_icon" />
+
+                <TextView
+                    android:id="@+id/destination_title"
+                    style="@style/FontSecondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="2"
+                    android:text="ებრაელთა და კათოლიკეთა უბნის გზაჯვარედინი"
+                    app:layout_constraintEnd_toEndOf="@id/location_number"
+                    app:layout_constraintStart_toStartOf="@id/location_number"
+                    app:layout_constraintTop_toBottomOf="@id/location_number" />
+                <TextView
+                    android:id="@+id/destination_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/destination_title"
+                    app:layout_constraintStart_toStartOf="@id/destination_title"
+                    app:layout_constraintEnd_toEndOf="@id/destination_title"
+                    android:layout_marginTop="8dp"
+                    style="@style/FontSecondary"
+                    android:text="რუსთაველის ქ. #7"
+                    android:textColor="@color/black_tr_40"/>
+
+                <ImageView
+                    android:id="@+id/location_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_24"
+                    android:background="@drawable/map_icon_bg"
+                    android:padding="@dimen/spacing_16"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintEnd_toEndOf="@id/pin_icon"
+                    app:layout_constraintStart_toStartOf="@id/pin_icon"
+                    app:layout_constraintTop_toBottomOf="@id/destination_address" />
+
+                <TextView
+                    android:id="@+id/distance_left_tv"
+                    style="@style/FontSecondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_16"
+                    android:layout_marginEnd="24dp"
+                    android:text="@string/distance_left_text"
+                    android:textColor="@color/black_tr_40"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/location_icon"
+                    app:layout_constraintTop_toTopOf="@id/location_icon" />
+
+                <TextView
+                    android:id="@+id/distance_left_value"
+                    style="@style/FontSecondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="2 კმ"
+                    app:layout_constraintStart_toStartOf="@id/distance_left_tv"
+                    app:layout_constraintTop_toBottomOf="@id/distance_left_tv" />
+
+                <ImageView
+                    android:id="@+id/submit_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/btn_disabled"
+                    android:clickable="false"
+                    app:layout_constraintTop_toBottomOf="@id/distance_left_value" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/FontPrimary"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/submit_button"
+                    app:layout_constraintEnd_toEndOf="@id/submit_button"
+                    android:text="@string/start_ready_text"
+                    app:layout_constraintTop_toTopOf="@id/submit_button"
+                    app:layout_constraintBottom_toBottomOf="@id/submit_button"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

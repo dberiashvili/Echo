@@ -2,6 +2,7 @@ package com.echo.map.presentation
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -9,9 +10,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.akexorcist.googledirection.GoogleDirection
+import com.akexorcist.googledirection.constant.TransportMode
+import com.akexorcist.googledirection.model.Direction
+import com.akexorcist.googledirection.model.Route
+import com.akexorcist.googledirection.util.DirectionConverter
+import com.akexorcist.googledirection.util.execute
 import com.echo.R
 import com.echo.common.Constants.ACTION_START_FOREGROUND_SERVICE
 import com.echo.common.Constants.ACTION_STOP_FOREGROUND_SERVICE
+import com.echo.common.Constants.GOOGLE_API_KEY
 import com.echo.common.base.BaseFragment
 import com.echo.common.base.utils.permissions.PermissionManager
 import com.echo.common.base.utils.showPermanentlyDeniedDialog
@@ -46,7 +54,6 @@ class MapScreen : BaseFragment<MapScreenBinding, MapViewModel>(), PermissionRequ
     @Inject
     lateinit var permissionManager: PermissionManager
     private lateinit var map: GoogleMap
-    private var polylineList = mutableListOf<Polyline>()
     private var markerList = mutableListOf<Marker>()
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private val request by lazy {
@@ -64,6 +71,10 @@ class MapScreen : BaseFragment<MapScreenBinding, MapViewModel>(), PermissionRequ
             map.isMyLocationEnabled = true
         } else {
             request.send()
+        }
+
+        viewModel.distance.observe(viewLifecycleOwner) {
+            binding.distanceLeftValue.text = "$it კმ"
         }
 
         map.setOnMyLocationButtonClickListener(this)
@@ -104,9 +115,10 @@ class MapScreen : BaseFragment<MapScreenBinding, MapViewModel>(), PermissionRequ
     private fun observeLocations() {
         locationList.observe(viewLifecycleOwner) {
             locations = it
-            followPolyline()
             drawPolyline()
+
         }
+
 
 
     }
@@ -122,24 +134,54 @@ class MapScreen : BaseFragment<MapScreenBinding, MapViewModel>(), PermissionRequ
         }
     }
 
-    private fun drawPolyline()
-    {
-        val polyline=map.addPolyline(
-            PolylineOptions().apply {
-                color(Color.BLUE)
-                width(10f)
-                jointType(JointType.ROUND)
-                startCap(ButtCap())
-                endCap(ButtCap())
-                addAll(locations)
-            }
-        )
-        polylineList.add(polyline)
+    private fun drawPolyline() {
+        if (locations.isNotEmpty()){
+            GoogleDirection.withServerKey(GOOGLE_API_KEY)
+                .from(locations.last())
+                .to(LatLng(41.57213517, 45.87276793))
+                .transportMode(TransportMode.WALKING)
+                .execute(
+                    onDirectionSuccess = { direction -> onDirectionSuccess(direction, context!!) },
+                    onDirectionFailure = { t -> onDirectionFailure(t) }
+                )
+        }
+
     }
 
     private fun addMarker(position: LatLng){
         val marker = map.addMarker(MarkerOptions().position(position))
         markerList.add(marker!!)
+    }
+
+
+    private fun onDirectionSuccess(direction: Direction?, context: Context) {
+        direction?.let {
+            if (direction.isOK) {
+                val route = direction.routeList[0]
+                val directionPositionList = route.legList[0].directionPoint
+                map.addPolyline(
+                    DirectionConverter.createPolyline(
+                        context,
+                        directionPositionList,
+                        5,
+                        Color.BLUE
+                    )
+                )
+                setCameraWithCoordinationBounds(route)
+            }
+        }
+        viewModel.calculateDistance(locations.first(),(LatLng(41.57213517, 45.87276793)))
+    }
+
+    private fun onDirectionFailure(t: Throwable) {
+
+    }
+
+    private fun setCameraWithCoordinationBounds(route: Route) {
+        val southwest = route.bound.southwestCoordination.coordination
+        val northeast = route.bound.northeastCoordination.coordination
+        val bounds = LatLngBounds(southwest, northeast)
+        map.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100))
     }
 
     private fun sendActionCommandToService(action: String) {
